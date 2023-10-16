@@ -45,34 +45,6 @@ void VaoTestWidget::initializeGL()
     makeObject_2();
 }
 
-void VaoTestWidget::resizeGL(int w, int h)
-{
-    float aspect = float(w)/float(h?h:1);
-    float fov = 45.0f, zNear = 0.1f, zFar = 100.f;
-    m_pMat.setToIdentity();
-    m_pMat.perspective(fov, aspect, zNear, zFar);
-}
-
-void VaoTestWidget::paintGL()
-{
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    m_program->bind();
-
-    QMatrix4x4 mvMat;
-    mvMat.translate(0.0f, 0.0f, -3.0f);
-    m_program->setUniformValue(m_matrixUniform, m_pMat*mvMat);
-    {
-        QOpenGLVertexArrayObject::Binder vaoBind(&m_vao_2);
-        glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
-    }
-    {
-        QOpenGLVertexArrayObject::Binder vaoBind(&m_vao);
-        glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
-    }
-    m_program->release();
-}
-
 void VaoTestWidget::makeObject()
 {
     makeCurrent();
@@ -127,4 +99,33 @@ void VaoTestWidget::makeObject_2()
                                   3, sizeof(float) * 6);
     m_program->enableAttributeArray(attr);
     m_vbo_2.release();
+}
+
+
+void VaoTestWidget::resizeGL(int w, int h)
+{
+    float aspect = float(w)/float(h?h:1);
+    float fov = 45.0f, zNear = 0.1f, zFar = 100.f;
+    m_pMat.setToIdentity();
+    m_pMat.perspective(fov, aspect, zNear, zFar);
+}
+
+void VaoTestWidget::paintGL()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    m_program->bind();
+
+    QMatrix4x4 mvMat;
+    mvMat.translate(0.0f, 0.0f, -3.0f);
+    m_program->setUniformValue(m_matrixUniform, m_pMat*mvMat);
+    {
+        QOpenGLVertexArrayObject::Binder vaoBind(&m_vao_2);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
+    }
+    {
+        QOpenGLVertexArrayObject::Binder vaoBind(&m_vao);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
+    }
+    m_program->release();
 }

@@ -2,21 +2,24 @@
 // Created by xlu on 2023/10/10.
 //
 
-#ifndef OPENGL_TOOLS_QGL_WIDGET_HPP
-#define OPENGL_TOOLS_QGL_WIDGET_HPP
+#ifndef OPENGL_TOOLS_SIMPLEQGLWIDGET_H
+#define OPENGL_TOOLS_SIMPLEQGLWIDGET_H
 
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
 #include <QOpenGLBuffer>
 
-class QGL_Widget : public QOpenGLWidget, QOpenGLFunctions{
+class SimpleQGLWidget : public QOpenGLWidget, QOpenGLFunctions{
     Q_OBJECT
 
 public:
-    using QOpenGLWidget::QOpenGLWidget;
-
-    explicit QGL_Widget(QWidget* parent = nullptr) : QOpenGLWidget(parent)
+    explicit SimpleQGLWidget(QWidget* parent = nullptr) : QOpenGLWidget(parent)
     {
+    }
+
+    ~SimpleQGLWidget()
+    {
+        qDebug() << "SimpleQGLWidget deleted!";
     }
 
     void initializeGL() override
@@ -36,4 +39,4 @@ public:
 };
 
 
-#endif //OPENGL_TOOLS_QGL_WIDGET_HPP
+#endif //OPENGL_TOOLS_SIMPLEQGLWIDGET_H

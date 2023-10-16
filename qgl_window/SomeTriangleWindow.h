@@ -105,13 +105,13 @@ protected:
         program.enableAttributeArray("vPos");
 
 
-//        int m_colAttr = program.attributeLocation("Color");
+//        int m_colAttr = m_program.attributeLocation("Color");
 //        glVertexAttribPointer(m_colAttr, 3, GL_FLOAT, GL_FALSE, 0, colorData);
 //        glEnableVertexAttribArray(m_colAttr);
 
 //        m_vbo.write(sizeof(vertices),colorData,sizeof(colorData));
-//        program.setAttributeBuffer("Color",GL_FLOAT,0,3,sizeof(GLfloat)*3 );
-//        program.enableAttributeArray("Color");
+//        m_program.setAttributeBuffer("Color",GL_FLOAT,0,3,sizeof(GLfloat)*3 );
+//        m_program.enableAttributeArray("Color");
 
         //m_vbo.write(9*sizeof(GLfloat), colorData, 9*sizeof(GLfloat));
 
@@ -146,7 +146,6 @@ private:
     QOpenGLVertexArrayObject    m_vao;
     QOpenGLBuffer               m_vbo;
     QOpenGLBuffer               m_ebo;
-//    QOpenGLBuffer m_ebo(QOpenGLBuffer::IndexBuffer);
 };
 
 #endif

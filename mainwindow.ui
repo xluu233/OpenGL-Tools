@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
-      <width>191</width>
-      <height>141</height>
+      <y>30</y>
+      <width>211</width>
+      <height>461</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -31,25 +31,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="btn_create_qglwindow">
-       <property name="text">
-        <string>1.3  创建QOpenGLWindow</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>150</y>
-      <width>191</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="Line" name="line">
        <property name="orientation">
@@ -78,18 +59,13 @@
        </property>
       </widget>
      </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>10</y>
-      <width>271</width>
-      <height>116</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QPushButton" name="btn_create_glfw_1">
        <property name="text">
@@ -104,17 +80,43 @@
        </property>
       </widget>
      </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>50</y>
+      <width>221</width>
+      <height>331</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QPushButton" name="btn_create_glfw_3">
+      <widget class="QPushButton" name="btn_create_verture">
        <property name="text">
-        <string>3.3  glfw-多个三角形（多VBO测试）</string>
+        <string>4.1 纹理绘制</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_create_glfw_4">
+      <widget class="QPushButton" name="btn_create_cube">
        <property name="text">
-        <string>3.3  glfw-shader测试</string>
+        <string>4.2 正方体绘制 cube1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_create_cube_2">
+       <property name="text">
+        <string>4.3 cube2</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_create_cube_3">
+       <property name="text">
+        <string>4.3 cube3</string>
        </property>
       </widget>
      </item>

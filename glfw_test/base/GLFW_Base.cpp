@@ -22,8 +22,8 @@ GLFW_Base::~GLFW_Base() {
 int GLFW_Base::initGL() {
     //初始化glfw
     glfwInit();
-//    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-//    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     //初始化窗口

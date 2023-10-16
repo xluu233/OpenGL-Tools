@@ -27,7 +27,6 @@ protected:
 private:
     void makeObject();
     void makeObject_2();
-    void setVertexAttribute();
 private:
     QOpenGLShaderProgram        *m_program;
     QOpenGLBuffer               m_vbo;

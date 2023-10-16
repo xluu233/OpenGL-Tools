@@ -7,14 +7,20 @@
 #include "qgl_widgetinwindow.h"
 #include "ui_QGL_WidgetInWindow.h"
 #include <QOpenGLWidget>
-#include "QGL_Widget.hpp"
+#include "SimpleQGLWidget.h"
 
 QGL_WidgetInWindow::QGL_WidgetInWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::QGL_WidgetInWindow) {
     ui->setupUi(this);
-    qDebug() << "QGL_WidgetInWindow init";
-    QGL_Widget *gl_widget = new QGL_Widget(this);
+
+    SimpleQGLWidget *gl_widget = new SimpleQGLWidget(this);
     gl_widget->setGeometry(QRect(0,00,400,300));
     gl_widget->show();
+    //指针创建的在这里不能delete, 为什么show不是阻塞操作？
+    //delete gl_widget;
+
+    //error!
+//    SimpleQGLWidget w();
+//    w.show();
 
 }
 
