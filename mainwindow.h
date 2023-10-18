@@ -22,6 +22,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QWidget *w = nullptr;
 
 private slots:
 

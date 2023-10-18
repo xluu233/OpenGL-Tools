@@ -119,10 +119,10 @@ public:
     }
 
     void initShader() {
-//        if (!program->addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resource/shader/cube_vs.glsl"))
+//        if (!skyShader->addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resource/shader/cube_vs.glsl"))
 //            close();
 //
-//        if (!program->addShaderFromSourceFile(QOpenGLShader::Fragment, ":resource/shader/cube_fs.glsl"))
+//        if (!skyShader->addShaderFromSourceFile(QOpenGLShader::Fragment, ":resource/shader/cube_fs.glsl"))
 //            close();
 
         if (!program->addShaderFromSourceFile(QOpenGLShader::Vertex, ":/resource/shader/3_verture_vs.glsl"))
@@ -203,12 +203,12 @@ public:
 
 
 //        quintptr offset = 0;
-//        program->setAttributeBuffer("vPos", GL_FLOAT, offset, 3, sizeof(VertexData));
-//        program->enableAttributeArray("vPos");
+//        skyShader->setAttributeBuffer("vPos", GL_FLOAT, offset, 3, sizeof(VertexData));
+//        skyShader->enableAttributeArray("vPos");
 //
 //        offset += sizeof(QVector3D);
-//        program->setAttributeBuffer("vTexture", GL_FLOAT, offset, 2, sizeof(VertexData));
-//        program->enableAttributeArray("vTexture");
+//        skyShader->setAttributeBuffer("vTexture", GL_FLOAT, offset, 2, sizeof(VertexData));
+//        skyShader->enableAttributeArray("vTexture");
 
 //        arrayBuf.release();
 //        indexBuf.release();
@@ -270,12 +270,12 @@ public:
         //将顶点数据分配到VBO中，第一个参数为数据指针，第二个参数为数据的字节长度
         m_vbo.allocate(_vertex,sizeof(_vertex));
 
-//        program->bind();
-//        program->setAttributeBuffer("vPos", GL_FLOAT, 0 * sizeof(float), 3, sizeof(VertexData));
-//        program->enableAttributeArray("vPos");
+//        skyShader->bind();
+//        skyShader->setAttributeBuffer("vPos", GL_FLOAT, 0 * sizeof(float), 3, sizeof(VertexData));
+//        skyShader->enableAttributeArray("vPos");
 //
-//        program->setAttributeBuffer("vTexture", GL_FLOAT, 3 * sizeof(float), 2, sizeof(VertexData));
-//        program->enableAttributeArray("vTexture");
+//        skyShader->setAttributeBuffer("vTexture", GL_FLOAT, 3 * sizeof(float), 2, sizeof(VertexData));
+//        skyShader->enableAttributeArray("vTexture");
 
         // 绑定顶点坐标信息, 从0 * sizeof(float)字节开始读取3个float, 因为一个顶点有5个float数据, 所以下一个数据需要偏移5 * sizeof(float)个字节
         program->setAttributeBuffer("vPos", GL_FLOAT, 0 * sizeof(float), 3, 5 * sizeof(float));
@@ -317,9 +317,9 @@ public:
 
         {
             // 绑定变换矩阵
-//            program->setUniformValue("projection", m_projection);
-//            program->setUniformValue("view", m_view);
-//            program->setUniformValue("model", m_model);
+//            skyShader->setUniformValue("projection", m_projection);
+//            skyShader->setUniformValue("view", m_view);
+//            skyShader->setUniformValue("model", m_model);
 
             glDrawArrays(GL_TRIANGLE_FAN,0,4);     //绘制矩形
             // 绘制

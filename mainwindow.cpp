@@ -6,18 +6,16 @@
 
 #include "mainwindow.h"
 #include "ui_MainWindow.h"
-#include "glfw_test/base/GLFW_Base.h"
-#include "glfw_test/GLFW_Windows.hpp"
-#include "glfw_test/GLFW_Triangle.h"
 #include "qgl_widget/qgl_widgetinwindow.h"
 #include "qgl_window/SimpleTriangleWindow.h"
 #include "qgl_window/SomeTriangleWindow.h"
-#include "glfw_test/GLFW_TwoTriangle.h"
 #include "qgl_widget/VaoTestWidget.h"
 #include "qgl_window/QVerture.h"
 #include "qgl_window/QCubeWindow.h"
-#include "base/OpenGLWidget.h"
-#include "base/OpenGLWidget2.h"
+#include "cube/OpenGLWidget.h"
+#include "cube/OpenGLWidget2.h"
+#include "skybox/TWindow.h"
+#include "assimp/LoadModelWidget.h"
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -26,22 +24,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     //on_btn_create_gl_clicked就是默认的btn_create_gl点击事件的默认槽函数了，不需要绑定
     //connect(ui->btn_create_gl,&QPushButton::clicked, this, on_btn_create_gl_clicked());
 
-    /*---------------GLFW--------------------------------*/
-    connect(ui->btn_create_glfw_1,&QPushButton::clicked, this, [&](){
-        GLFW_Base *glBase = new GLFW_Windows();
-        glBase->showGL();
-        delete glBase;
-    });
-
-    connect(ui->btn_create_glfw_2,&QPushButton::clicked, this, [&](){
-        GLFW_Triangle *w = new GLFW_Triangle();
-        w->showGL();
-        delete w;
-    });
-    /*---------------GLFW END--------------------------------*/
 
 
-    //创建QOpenGL Widget
+    //创建QOpenGL LoadModelWidget
     connect(ui->btn_create_qglwidget,&QPushButton::clicked, this, [&](){
         QGL_WidgetInWindow *w = new QGL_WidgetInWindow(this);
         w->show();
@@ -87,8 +72,25 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     });
 
 
+    connect(ui->btn_shy_box,&QPushButton::clicked, this,[&](){
+        QSurfaceFormat fmt = QSurfaceFormat::defaultFormat();
+        fmt.setVersion(3, 3);
+        fmt.setDepthBufferSize(24);
+        fmt.setProfile(QSurfaceFormat::CoreProfile);
+        QSurfaceFormat::setDefaultFormat(fmt);
+
+        TWindow *w = new TWindow();
+        w->show();
+    });
+
+    connect(ui->btn_assimp_model,&QPushButton::clicked, this,[&](){
+        LoadModelWidget *w = new LoadModelWidget;
+        w->show();
+    });
+
 }
 
 MainWindow::~MainWindow() {
     delete ui;
+    delete w;
 }

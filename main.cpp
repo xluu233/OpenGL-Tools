@@ -2,7 +2,6 @@
 #include <QPushButton>
 #include <iostream>
 #include "mainwindow.h"
-#include "GLFW/glfw3.h"
 
 
 int main(int argc, char *argv[])

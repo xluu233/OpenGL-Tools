@@ -7,7 +7,7 @@
 #include <QOpenGLBuffer> 
 #include <QOpenGLShaderProgram> 
 #include <QOpenGLTexture>
-#include "Camera.h"
+#include "QCamera.h"
 #include "Light.h"
 
 struct Vertex
@@ -46,7 +46,7 @@ public:
 	void setShaderProgram(QOpenGLShaderProgram *program) { m_program = program; }
 	void setMaterial(const Material &material, int index  = -1);
 public:
-	void setCamera(Camera *camera) { m_camera = camera; }
+	void setCamera(QCamera *camera) { m_camera = camera; }
 	void setProjection(const QMatrix4x4 &projection) { m_projection = projection; }
 	void setLight(Light *light) { m_light = light; }
 public:
@@ -69,6 +69,6 @@ protected:
 	QOpenGLShaderProgram *m_program = nullptr;
 
 	QMatrix4x4 m_projection;
-	Camera *m_camera = nullptr;
+	QCamera *m_camera = nullptr;
 	Light *m_light = nullptr;
 };

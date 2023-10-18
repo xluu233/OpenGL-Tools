@@ -66,20 +66,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="btn_create_glfw_1">
-       <property name="text">
-        <string>3.1 glfw-窗口</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_create_glfw_2">
-       <property name="text">
-        <string>3.2  glfw-三角形</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -87,8 +73,8 @@
      <rect>
       <x>230</x>
       <y>50</y>
-      <width>221</width>
-      <height>331</height>
+      <width>191</width>
+      <height>441</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -117,6 +103,20 @@
       <widget class="QPushButton" name="btn_create_cube_3">
        <property name="text">
         <string>4.3 cube3</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_shy_box">
+       <property name="text">
+        <string>5.1  天空盒子</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_assimp_model">
+       <property name="text">
+        <string>5.1  Assimp加载模型</string>
        </property>
       </widget>
      </item>
